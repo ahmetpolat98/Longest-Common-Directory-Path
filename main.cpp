@@ -2,13 +2,15 @@
 #include <vector> 
 #include "Path.h"
 #include "Config.h"
+#include "LCDP.h"
 
 using namespace std;
 
 
+int main(int argc, char *argv[]){
+    string input_file = argv[1];
 
-int main(){
-
+    /*
     Path p1("/abc/a/../b/../c/../x/../../");
     //cout << p1.getRealPath();
 
@@ -22,6 +24,9 @@ int main(){
     Config config("config.txt");
     cout << "max len: " << config.getMaxPathLength() << endl;
     cout << "max input: " << config.getMaxInput() << endl;
+    */
+   LCDP a(input_file);
+
 
     return 0;
 }

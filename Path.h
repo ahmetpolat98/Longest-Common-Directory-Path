@@ -7,11 +7,12 @@ using namespace std;
 class Path{
     private:
     string original_path;
-    string real_path;
-    vector<string> vector_real_path;
+    string real_path; 
     int len_vector;
 
     public:
+    vector<string> vector_real_path;
+
     Path(string);
     vector<string> findRealPath(string);
 
@@ -87,6 +88,7 @@ vector<string> Path::findRealPath(string path){
             this->len_vector += 1;
         }
     }
+
     // iterate vector assign string format with /
     for (auto x : v) {
         cout << "vector: " << x << endl;
