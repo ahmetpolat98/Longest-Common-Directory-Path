@@ -1,6 +1,6 @@
 Compile: g++ -std=c++11 -Wall -Werror main.cpp -o main
 Run: ./main <inputfile>
-    example: ./main inputs/input1.txt
+example: ./main inputs/input1.txt
 
 
 -Get input paths from inputs.txt file. Settings are made from config.txt file. Output written to output.txt file.
