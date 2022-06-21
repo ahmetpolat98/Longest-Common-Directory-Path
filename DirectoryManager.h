@@ -40,6 +40,7 @@ DirectoryManager::DirectoryManager(string input_file, Config config){
     }
 }
 
+//read input paths from input file
 void DirectoryManager::readInputFile(){
     fstream filein;
     filein.open(input_file, ios::in);
@@ -49,35 +50,36 @@ void DirectoryManager::readInputFile(){
 
     //read line by line
     while (getline(filein, line)) {
-        //cout << "input: " << line << endl;
+        //create Path object each line from input file
         Path path(line);
-        inputs.push_back(path);
+        inputs.push_back(path); //push inputs vector
         row_no++;       
     }
     this->input_number = row_no;
-    //cout << "input number: " << row_no;
 }
 
 void DirectoryManager::findLongestCommon(){
-    //bool flag = true;
     bool same = true;
     int element = 0;
 
-    //cout << "finding longest common..." << endl;
-
+    //Comparing other elements over the Path object, which is the first element in the inputs vector.
     while (same){
         if (inputs[0].getLenVector() <= element){
             break;
         }
+        //The element to be compared is assigned temp.
         string temp = inputs[0].vector_real_path[element];
+        //The same elements of other inputs are iterated and compared. If different, the loop break
         for (int i = 1; i < input_number; i++)
         {
+            //If the length of the iterated Path object is less than the element or its value is not the same as the temp
             if (inputs[i].getLenVector() <= element || inputs[i].vector_real_path[element] != temp)
             {
                 same = false;
                 break;
             }
         }
+        //If all elements are the same push
         if (same){
            vec_longest_common.push_back(temp);
         }
@@ -97,6 +99,7 @@ void DirectoryManager::findLongestCommon(){
     
 }
 
+//write final result to ouput file
 void DirectoryManager::writeOutputFile(string output_file){
     ofstream output;
     output.open (output_file);

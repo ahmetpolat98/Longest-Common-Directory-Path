@@ -91,13 +91,11 @@ vector<string> Path::findRealPath(string path){
 
     // iterate vector assign string format with /
     for (auto x : v) {
-        //cout << "vector: " << x << endl;
         absolute_path += "/" + x;
     }
  
     // vector is empty
     if (absolute_path == ""){
-        //cout << "vector empty " << endl;
         this->real_path = "/";
         return v;
     }

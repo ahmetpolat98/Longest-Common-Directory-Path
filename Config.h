@@ -56,11 +56,9 @@ void Config::readFile(){
             row.push_back(column);
 		}
         if(row_no==1){
-            // cout << "row 1: " << row[0] << " " << row[1] << endl;
             this->max_path_length = stoi(row[1]);
         }
         else if(row_no==2){
-            // cout << "row 2: " << row[0] << " " << row[1] << endl;
             this->max_input = stoi(row[1]);
         }
         row_no++;       
