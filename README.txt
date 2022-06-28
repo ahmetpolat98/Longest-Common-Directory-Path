@@ -3,7 +3,7 @@ Run: ./main <inputfile>
 example: ./main inputs/input1.txt
 
 
--Get input paths from inputs.txt file. Settings are made from config.txt file. Output written to output.txt file.
+-Get input paths from inputs.txt file. Output written to output.txt file.
 
 Problem description:
     • Find the longest common directory path between given paths
