@@ -5,21 +5,59 @@ example: ./main inputs/input1.txt
 
 -Get input paths from inputs.txt file. Settings are made from config.txt file. Output written to output.txt file.
 
--Analysis of Algorithm:
-    -First, I find the realPath of the paths given as input. I apply operators like ".. , . ", and get the final version of the path.
-    -
-    findRealPath():
-        - n: number of input paths
-        l: length of input paths
-        Time Complexity: O(n*l)
+Problem description:
+    • Find the longest common directory path between given paths
+    • Inputs are 2 or more string representing a UNIX path
+    • The output will be a string representing the longest common
+    path between input paths
+Assumptions:
+    • Two dots (“..”) indicates parent directory
+    • One dot (“.”) represents the current directory
+    • More than two leading slashes (“////”) is treated as a single
+    slash (“/”)
+    • Input paths contains only directories
+    • All paths are absolute paths, if an input path does not start
+    with “/”, you can return the root path “/”
+    • All input paths are valid
+    • Maximum path length is 1024
+    • Maximum number of input path is 10
+    
+    
+    
+Example input:
+“/a/b/c/s”
+“/a/b/c/f/e”
+“/a/b/c/f/e/g”
+Expected output:
+“/a/b/c”
 
-        -Space Complexity: n*l
+Example input:
+“”
+“/c/d”
+Expected output:
+“/”
 
-    -I collected the paths in a vector. I iterate through all Paths as long as the shortest path length. 
-    -When there is a different path, I finished the longest common loop and output the result.
-    findLongestCommon():
-        n: number of input paths
-        m: Minimum path length in input paths
-        Time Complexity: O(n*m)
+Example input:
+“/abcd/efg”
+“abcd/efg/jkl”
+Expected output:
+“/”
 
-        -Space Complexity: n*m
+Example input:
+“/a/b”
+“/a/././././b”
+Expected output:
+“/a/b”
+
+Example input:
+“/a/b”
+“/a/////b”
+Expected output:
+“/a/b”
+
+Example input:
+“/a/b/../../c/d/f”
+“/c/d”
+“/c/d/h/j”
+Expected output:
+“/c/d”
